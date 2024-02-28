@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculator</title>
+    <style>
+      body,
+      html {
+        margin: 0px;
+      }
+      input[type="button"] {
+        border: none;
+        width: 100%;
+        background-color: skyblue;
+        height: 60px;
+        font-size: 30px;
+      }
+      input[type="button"]:hover {
+        border: 2px solid blue;
+      }
+      input[type="button"]:active {
+        background-color: black;
+      }
+      input[type="text"] {
+        font-size: 30px;
+      }
+      #wrap {
+        margin: 50px auto;
+      }
+      table {
+        margin: 10px auto;
+      }
+      td {
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <table>
+        <tr>
+          <td colspan="3"><input type="text" id="result" size="12" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="ip" value="7" /></td>
+          <td><input type="button" class="ip" value="8" /></td>
+          <td><input type="button" class="ip" value="9" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="ip" value="4" /></td>
+          <td><input type="button" class="ip" value="5" /></td>
+          <td><input type="button" class="ip" value="6" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="ip" value="1" /></td>
+          <td><input type="button" class="ip" value="2" /></td>
+          <td><input type="button" class="ip" value="3" /></td>
+        </tr>
+        <tr>
+          <td><input type="button" class="ip" value="0" /></td>
+          <td><input type="button" id="backspace" value="X" /></td>
+          <td><input type="button" id="clear" value="C" /></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+  <script>
+    var  ele_btn=document.getElementsByClassName("ip");
+    var eleResult = document.getElementById("result");
+    var ele_clear = document.getElementById("clear");
+    var ele_backspace = document.getElementById("backspace");
+    ele_clear.disabled = true;
+    ele_backspace.disabled = true;
+    for(var i=0; i<ele_btn.length; i++){
+      ele_btn[i].addEventListener("click",showResult);
+      ele_clear.addEventListener("click",function(){
+        eleResult.value="";
+        ele_clear.disabled = true;
+        ele_backspace.disabled = true;
+      }
+      );
+      ele_backspace.addEventListener("click",delete_key);
+    }
+    function showResult(event){
+      console.log(event.target.value);
+      eleResult.value+=event.target.value;
+      ele_clear.disabled = false;
+      ele_backspace.disabled = false;
+    }
+    function delete_key(event){
+      eleResult.value=eleResult.value.slice(0,eleResult.value.length-1);
+      if(eleResult.value==""){
+        ele_backspace.disabled = true;
+        ele_clear.disabled = true;
+      }
+    }  </script>
+</html>

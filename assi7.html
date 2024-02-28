@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a287ec111c.js" crossorigin="anonymous"></script>
+
+    <style>
+        .container {
+            /* border: 2px solid black; */
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+            margin-top: 200px;
+            word-spacing: 5px;
+            font-size: large;
+            background-color: brown;
+            color: white;
+            padding: 10px;
+        }
+
+        
+
+        .red {
+            color: red;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .myborder {
+            border: 2px solid black;
+        }
+
+        span {
+            padding: 0px;
+        }
+
+        .subcontainer {
+            display: inline;
+        }
+
+        #cnt-like,
+        #cnt-Dislike {
+            margin-left: 5px;
+        }
+
+        .div-content {
+            padding: 10px;
+        }
+
+        .btnfmly{
+            display: inline-block;
+            padding: 5px;
+            width: 20%;
+            /* margin: 10px; */
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container ">
+       
+            <div class="div-content ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero, totam nesciunt ut
+                repellat doloribus minus? Labore, excepturi asperiores harum rem delectus accusantium magnam et ea
+                consequuntur ad, debitis enim corrupti.
+            </div>
+      
+        <div class="btnfmly ">
+            <button id="1" onclick="count(this.id)">like</button>
+            <div >
+                <i class="far fa-thumbs-up green mr-3 "></i><span id="cnt-like">0 </span>
+            </div>
+        </div>
+        <div class="btnfmly">
+            <button id="2" onclick="count(this.id)">Dislike</button>
+            <div>
+                <i class="far fa-thumbs-up red mr-3 "></i><span id="cnt-Dislike">0 </span>
+            </div>
+        </div>
+
+    </div>
+    <!-- <button id="2" onclick="count(this.id)">Dislike</button>
+    </div>
+    <div id="btnfmly">
+    <button id="1" onclick="count(this.id)">like</button>
+    <button id="2" onclick="count(this.id)">Dislike</button>
+    </div> -->
+    <!-- <div class="symbol myborder">
+    <i class="far fa-thumbs-up green mr-3 "></i><span id="cnt-like">0 </span>
+    <i class="far fa-thumbs-down red mr-3 "> </i><span id="cnt-Dislike">0 </span> -->
+    </div>
+
+    <script>
+        var i = 0;
+        var j = 0;
+        function count(id) {
+            if (id == 1) {
+                i++;
+                document.getElementById("cnt-like").innerHTML = i;
+            }
+            else {
+                j++;
+                document.getElementById("cnt-Dislike").innerHTML = j;
+            }
+        }
+    </script>
+</body>
+
+</html>

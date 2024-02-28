@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            width: 20%;
+            /* text-align: center; */
+            /* border: 2px solid black; */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            height: 200px;
+            
+        }
+        #pname
+        {
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="btnfmly">
+            <button id="1" onclick="pname(this.id)">Click to get next player</button>
+            <button id="2" onclick="pname(this.id)">Clear List</button>
+        </div>
+        <div id="pname" ></div>
+    </div>
+    <script>
+        var i = 0;
+        var players=["Rohit Sharma", "Shubman Gill", "Prithvi Shaw", "Mayank Agarwal", "Abhimanyu Easwaran", "Priyank Panchal",
+        "Cheteshwar Pujara", "Virat Kohli", "Ajinkya Rahane", "Hanuma Vihari", "KL Rahul",
+        "Washington Sundar", "Hardik Pandya", "Ravindra Jadeja"];
+        
+        function pname(id)
+        {
+            
+            if(id==1)
+            {
+                document.getElementById("pname").innerHTML+=players[i++]
+                i=(i+1)%players.length; 
+            }
+            else
+            {
+                i=0;
+                document.getElementById("pname").innerHTML=null
+            }
+        }
+
+    </script>
+</body>
+</html>

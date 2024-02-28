@@ -1,0 +1,90 @@
+<!--  save this file as index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ass11</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 16px;
+      }
+      .container
+      {
+        width: 90%;
+        padding: 20px;
+        border: 2px solid black;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: red;
+        margin: 20px;
+      }
+      #container {
+        width: 80%;
+        margin: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      input[type="text"] {
+        margin: 10px auto;
+        font-size: 30px;
+        width: 80%;
+        text-align: center;
+      }
+      .text
+      {
+        font-size: 30px;
+        text-align: center;
+        
+      }
+      #red {
+        color: red;
+        
+      }
+      #blue {
+        color: blue;
+      }
+      #green {
+        color: green;
+      }
+      #orange {
+        color: orange;
+      }
+      #purple {
+        color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div id="container">
+      <input type="text" id="ip" placeholder="Enter some text" onkeyup="display()"/>
+    </div>
+</div>
+    <div id="container-text">
+      <div id="red" class="text"></div>
+      <div id="blue" class="text"></div>
+      <div id="green" class="text"></div>
+      <div id="orange" class="text"></div>
+      <div id="purple" class="text"></div>
+    </div>
+
+    <script>
+     
+      function display()
+      {
+            document.getElementById("red").innerHTML=document.getElementById("ip").value;
+            document.getElementById("blue").innerHTML=document.getElementById("ip").value;
+            document.getElementById("green").innerHTML=document.getElementById("ip").value;
+            document.getElementById("orange").innerHTML=document.getElementById("ip").value;
+            document.getElementById("purple").innerHTML=document.getElementById("ip").value;
+      }
+    </script>
+  </body>
+</html>

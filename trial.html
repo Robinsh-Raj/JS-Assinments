@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn-grp
+        {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin: 20px ;
+        }
+        #container div {
+            margin: 20px;
+        }
+        .div-rbtn {
+            margin: 5px 30px;
+            display: inline;
+        }
+        table,td
+        {
+            margin: auto;   
+        }
+        td 
+        {
+            width: 100px;
+            text-align: center;
+            background-color: cornflowerblue;
+            color: white;
+            padding: 10px;
+        }
+        #heading
+        {
+            text-align: center;
+            color: cornflowerblue;
+        }
+        #search
+        {
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 id="heading"> </h1>
+    <div id="search"><input type="text" name="" placeholder="Enter name" id="ip-txt"></div>
+        <div class="btn-grp">
+            <div class="div-rbtn">Show All  <input type="radio" name="show" id=""/></div>
+            <div class="div-rbtn">Marks > 50  <input type="radio" name="show" id=""/></div>
+            <div class="div-rbtn">Marks < 50  <input type="radio" name="show" id=""/></div>
+        </div>
+        
+    </div>
+    <table id="table-student"></table>
+    <script>
+        
+    var data = [
+            { rollno: "10", name: "Robince", marks: 83.3 },
+            { rollno: "11", name: "Vikash", marks: 55.0 },
+            { rollno: "12", name: "Vanshika", marks: 38.2 },
+            { rollno: "18", name: "Isha", marks: 75.8 },
+            { rollno: "19", name: "Nandan", marks: 69.6 },
+            { rollno: "20", name: "Pragati", marks: 33.1 },
+            { rollno: "21", name: "Ramesh", marks: 56.4 },
+            { rollno: "22", name: "Rahul", marks: 87.5 },
+            { rollno: "23", name: "Rupesh", marks: 19.2 },
+            { rollno: "25", name: "Justin", marks: 69.9 },
+            { rollno: "27", name: "Divya", marks: 64.2 },
+            { rollno: "29", name: "Rohan", marks: 45.5 },
+            ];
+        var ele_table = document.getElementById("table-student");
+        var ele_heading = document.getElementById("heading");
+        var ele_rbtns = document.querySelectorAll("input[type='radio']");
+        var filtered_data=data;
+        var ele_iptxt = document.getElementById("ip-txt");
+        ele_iptxt.addEventListener("keyup",function()
+        {
+            var target=ele_iptxt.value;
+            var matched_data=filtered_data.filter((data) =>data.name.toLowerCase().indexOf(target.toLowerCase())!=-1);
+            showtable(matched_data);
+            // console.log(matched_data);
+            
+        });
+        ele_rbtns.forEach(function (d, index )
+            {
+                d.addEventListener("change", function()
+                {
+                    if(index==0)
+                { 
+                    filtered_data=data;
+                }
+                else if(index==1)
+                { 
+                    filtered_data=data.filter((value) => value.marks>=50);
+                }
+                else if(index==2)
+                { 
+                    filtered_data=data.filter((value) => value.marks<50);
+                }
+                showtable(filtered_data);
+ }) 
+ });
+        var columnNames = ["rollno", "name", "marks"];
+        showtable(filtered_data);
+        function showtable(selected_data)
+        {
+            var html=  "";
+        for(var i =0;i<selected_data.length;i++)
+        {
+            html+="<tr>";
+                for(var j=0;j<columnNames.length;j++)
+                {
+                    html+="<td>"+ selected_data[i][columnNames[j]] +"</td>"; 
+                }//inner for
+                html+="<td>input type='button' class='dele-btn' </td>";
+                html+="</tr>";
+        }//outer for
+        ele_table.innerHTML=html;
+        showHeading();
+    }
+    function showHeading()
+    {
+        ele_heading.innerHTML="Student's Data ("+filtered_data.length+")";
+    }
+
+    </script>
+</body>
+</html>

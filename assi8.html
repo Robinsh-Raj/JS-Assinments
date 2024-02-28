@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            border: 2px solid red;
+            width: 20%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .para
+        {
+            font-size: 20px;
+            text-align: center;
+            color: blueviolet;
+        }
+        .para2
+        {
+            font-size: 17px;
+            text-align: center;
+            color: blueviolet;
+            margin: 10px;
+        }
+        button, h1
+        {
+            display: inline-block;
+            margin: 20px;
+        }
+        button{
+            font-size: 20px;
+            background-color: orange;
+        
+        }
+        #one
+        {
+            color: red;
+            font-size: 20px;
+        }
+        #cost, #cost1, #cost2
+        {
+            display: inline-block;
+            padding: 5px;
+            display: none;
+            color: red;
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./download.jpeg" alt="">
+        <div class="para">
+             Parle-G Biscuits
+        </div>
+        <div class="para">
+            (40gm)
+       </div>
+       <div class="para2">
+        Price Rs 5/-
+   </div>
+   <div class="btnfmly">
+    <button id="1" onclick="count(this.id)">-</button>
+    <h1 id="one">..</h1>
+    <button id="2" onclick="count(this.id)">+</button>
+   </div>
+   <div id="cost1">
+    Rs. 
+    <div id="cost"></div>
+    <div id="cost2">/-</div>
+</div>
+    </div>
+    <script>
+        var i=1;
+        var p=5;
+        
+        function count(id)
+        {
+           
+            if(id==1)
+            {
+                if(i>0)
+                {
+                i--;
+                document.getElementById("one").innerHTML=i;
+                document.getElementById("cost").style.display="block"
+                document.getElementById("cost").innerHTML=p*i;
+                }
+            }
+            else
+            {
+                if(i>0)
+                {
+                    i++;
+                document.getElementById("one").innerHTML=i;
+                document.getElementById("cost").style.display="block"
+                document.getElementById("cost").innerHTML=p*i;
+                }
+            }
+        }
+    </script>
+</body>
+
+
+</html>

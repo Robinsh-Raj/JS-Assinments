@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Players</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif Rounded;
+        padding: 0px;
+        margin: 0px;
+        font-size: 30px;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+      }
+      #container {
+        width: 500px;
+        margin: 20px auto;
+        font-size: 25px;
+        padding: 10px;
+        color: black;
+      }
+      .players {
+        background-color: brown;
+        color: chartreuse;
+        margin-bottom: 10px;
+        padding-left: 10px;
+      }
+      .hide {
+        display: none;
+      }
+      #wrapper-ip {
+        margin-top: 29px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper-ip">
+      <input type="text" name="search" id="" placeholder="Search a player" />
+    </div>
+    <div id="container"></div>
+    <script>
+      var players = [
+        "Rohit Sharma",
+        "Shubman Gill",
+        "Prithvi Shaw",
+        "Mayank Agarwal",
+        "Abhimanyu Easwaran",
+        "Priyank Panchal",
+        "Cheteshwar Pujara",
+        "Virat Kohli",
+        "Ajinkya Rahane",
+        "Hanuma Vihari",
+        "KL Rahul",
+        "Washington Sundar",
+        "Hardik Pandya",
+        "Ravindra Jadeja",
+      ];
+      var index = 0,
+        player;
+      var filtered_players = players;
+      showPlayers(filtered_players);
+      function showPlayers(filtered_players) {
+        var html = "";
+        for (let i = 0; i < filtered_players.length; i++) {
+          html += `
+        <div class="players" id="player${i}">${filtered_players[i]} </div>
+    `;
+        } //for
+        document.getElementById("container").innerHTML = html;
+      }
+      var ele_search = document.querySelector("input[type='text']");
+	  // Add the required code
+    ele_search.addEventListener("keyup",function()
+        {
+            var target=ele_search.value;
+            var matched_data=filtered_players.filter((data) =>data.toLowerCase().indexOf(target.toLowerCase())!=-1);
+            showPlayers(matched_data);
+            // console.log(matched_data);
+            
+        });
+      
+    </script>
+  </body>
+</html>

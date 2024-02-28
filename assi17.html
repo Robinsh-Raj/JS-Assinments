@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ass31</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 16px;
+      }
+      #container {
+        background-color: green;
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+      #container div {
+        margin: 20px;
+      }
+      select {
+        font-size: 20px;
+        padding: 5px;
+      }
+      button {
+        font-size: 15px;
+        padding: 5px;
+      }
+      #message {
+        color: white;
+      }
+      #salary {
+        color: green;
+        font-size: 30px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="message"></div>
+      <div>
+        Select Month:
+        <select name="month" id="month" onclick="fillDays()"></select>
+      </div>
+      <div>
+        Select Days:
+        <select name="days" id="days"></select>
+      </div>
+      <div>
+        Male<input
+          type="radio"
+          id="male"
+          value="male"
+          name="gender"
+          onclick="setGender(this.value)"
+          checked
+        />
+        Female<input
+          type="radio"
+          id="female"
+          value="female"
+          name="gender"
+          onclick="setGender(this.value)"
+        />
+      </div>
+      <div>
+        <button id="btn" onclick="showSalary()">Calculate Salary</button>
+      </div>
+      <div id="salary"></div>
+    </div>
+
+    <script>
+      var daysOfMonth = [
+        { month: "January", days: 31 },
+        { month: "February", days: 28 },
+        { month: "March", days: 31 },
+        { month: "April", days: 30 },
+        { month: "May", days: 31 },
+        { month: "June", days: 30 },
+        { month: "July", days: 31 },
+        { month: "August", days: 31 },
+        { month: "September", days: 30 },
+        { month: "October", days: 31 },
+        { month: "November", days: 30 },
+        { month: "December", days: 31 },
+      ];
+      var ele_select_month = document.getElementById("month");
+      var ele_select_days = document.getElementById("days");
+      var html = "";
+      var gender = "";
+      for (let i = 0; i < daysOfMonth.length; i++) {
+        html += `<option >${daysOfMonth[i].month} </option>`;
+      } //for
+	//   ????
+  ele_select_month.innerHTML=html;
+      fillDays();
+    function fillDays()
+    {
+      var selectedIndex=ele_select_month.selectedIndex;
+         var html="";
+         var ulimit=daysOfMonth[selectedIndex].days;
+         for(var i=1; i<=ulimit; i++){
+          html+=`<option >${i}</option>`;
+         }
+         ele_select_days.innerHTML=html;
+      }
+      function setGender(value){
+      gender=value;
+    }
+      function calSalary(days) {
+        if (days > 22) {
+          wage = 500;
+        } else {
+          wage = 350;
+        }
+        if (gender == "female") {
+          wage -= 100;
+        }
+        if (days > 15 && gender == "male") {
+          bonus = 2000;
+        } else if (days > 15 && gender == "female") {
+          bonus = 1000;
+        } else {
+          bonus = 0;
+        }
+        salary = days * wage + bonus;
+        return salary;
+      }
+      function showSalary(x){
+        var x=ele_select_days.value;
+        console.log(x);
+        var y= calSalary(x);
+        console.log(y);
+        document.getElementById("salary").innerHTML=y;
+      }
+    </script>
+  </body>
+</html>

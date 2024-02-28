@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>City Selection</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 16px;
+      }
+      #container {
+        background-color: red;
+        width: 50%;
+        margin: 150px auto;
+        padding: 20px;
+        text-align: center;
+        color: white;
+      }
+      #container div {
+        margin: 20px;
+      }
+      select {
+        font-size: 20px;
+        padding: 5px;
+      }
+      button {
+        font-size: 15px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div>
+        Select State:
+        <select name="state" id="state" onclick="fillCities()"></select>
+      </div>
+      <div>
+        Select City:
+        <select name="city" id="city" onclick="showDescription()"></select>
+      </div>
+      <div id="description"></div>
+    </div>
+
+    <script>
+      var data = [
+        {
+          state: "Maharashtra",
+          cities: ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad"],
+        },
+        { state: "Madhya Pradesh", cities: ["Indore", "Bhopal"] },
+        {
+          state: "Gujrat",
+          cities: ["Ahmedabad", "Surat", "Jamnagar", "Vadodara", "Rajkot"],
+        },
+        {
+          state: "Rajsthan",
+          cities: ["Jaipur", "Jodhpur", "Bikaner", "Udaipur"],
+        },
+      ];
+      var ele_select_state = document.getElementById("state");
+      var ele_select_city = document.getElementById("city");
+      var html = "";
+      var state="";
+      var city="";
+      for (var i = 0; i < data.length; i++) {
+        html += `<option >${data[i].state}</option>`;
+        state=data[i].state;
+      }
+      ele_select_state.innerHTML = html;
+      fillCities();
+      
+      function fillCities() {
+        var selectedIndex = ele_select_state.selectedIndex;
+        var html = "";
+        var ulimit = data[selectedIndex].cities;
+        for (var i = 0; i < ulimit.length; i++) {
+          html += `<option>${ulimit[i]}</option>`;
+          city=ulimit[i];
+        }
+        console.log(city);
+        console.log("hiiiii");
+        ele_select_city.innerHTML = html;
+      }
+      showDescription();
+      function showDescription() {
+        document.getElementById("description").innerHTML =
+          `You have choosen ${city}  of state! ${state} `;
+      }
+    </script>
+  </body>
+</html>

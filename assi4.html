@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body
+        {
+            text-align: center;
+        }
+        h1
+        {
+            
+            width: 30%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: brown;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <button onclick="changeColors('solid')">solid border</button>
+    <button onclick="changeColors('double')">double border</button>
+    <button onclick="changeColors('dotted')">dotted border</button>
+
+    <h1 id="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, aut omnis. Earum dolorem rerum accusamus fuga explicabo molestias voluptatem ut quibusdam, odit illo voluptatum error minima. Quidem quam ex optio!</h1>
+    <script>
+        
+        function changeColors(bor)
+        {
+            document.getElementById("para").style.border=bor;
+            document.getElementById("para").style.borderWidth="thick";
+        }
+    </script>
+</body>
+</html>

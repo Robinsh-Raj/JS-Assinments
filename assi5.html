@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            width: 500px;
+            height: 300px;
+            margin-left: 650px;
+            margin-right: auto;
+            border: 2px solid black;
+            text-align: center;
+            padding: 50px;
+            background-color: aqua;
+        }
+        #count
+        {
+            display: inline;
+            text-align: center;
+            margin: 100px;
+            margin-left: 170px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="1" onclick="start(this.id)">Start</button>
+        <p class="one">
+            <h1 id="count"></h1>
+        <button id="2" onclick="start(this.id)" >Clear</button>
+    </p>
+    <button id="3" onclick="start(this.id)">Stop</button>
+</div>
+    <script>
+        
+        let j;
+        function start(id){
+            
+            if(id==1)
+            {
+                var i=0;
+               j = window.setInterval(function()
+                {
+                    i++;
+                    document.getElementById("count").innerHTML=i;
+                },2000);
+                document.getElementById("1").disabled=true;
+        document.getElementById("2").disabled=true;
+        document.getElementById("3").disabled=false;
+            }
+            if(id==2)
+            {
+                document.getElementById("count").innerHTML="0";
+                document.getElementById("1").disabled=false;
+        document.getElementById("2").disabled=true;
+        document.getElementById("3").disabled=true;
+        }
+        if(id==3)
+        {
+            clearTimeout(j);
+            document.getElementById("3").disabled=true;
+        document.getElementById("2").disabled=false;
+        document.getElementById("1").disabled=true;
+        }
+        
+    }
+
+        
+    
+   
+    
+    </script>
+</body>
+</html>

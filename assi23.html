@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Menu</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-size: 18px;
+      }
+      #container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        border: 2px solid black;
+      }
+      #container-items {
+        padding-left: 15px;
+        /* border: 2px solid black; */
+      }
+
+      .image-menu {
+        margin: 10px 10px;
+      }
+      .a-menu {
+        width: 20%;
+        display: inline-block;
+        margin: 5px 0px;
+        text-align: center;
+        
+      }
+      #heading {
+        text-align: center;
+        background-color: red;
+        color: white;
+        margin: 10px;
+        font-size: xx-large;
+        width: 40%;
+        margin: 20px auto;
+      }
+      #name-menu,
+      #rate-menu {
+        color: brown;
+        /* border: 2px solid black; */
+      }
+    
+    </style>
+  </head>
+  <body>
+    <div id="heading">Hotel Menus </div>
+    <div id="container-items" class="">
+    </div>
+
+    <script>
+      var items = [
+        { id: 1, name: "Pohe", rate: "20", image: "pohe.jpg" },
+        { id: 2, name: "Idli", rate: "40", image: "idli.jpg" },
+        { id: 3, name: "Shira", rate: "40", image: "shira.jpg" },
+        { id: 4, name: "Upma", rate: "40", image: "upma.jpg" },
+        { id: 5, name: "Medu Vada", rate: "60", image: "meduwada.jpg" },
+        { id: 6, name: "Batata Wada", rate: "40", image: "batatawada.jpg" },
+        { id: 7, name: "Masala Dosa", rate: "70", image: "masaladosa.jpg" },
+        { id: 8, name: "Onion Uttapa", rate: "60", image: "onionuttapa.jpg" },
+        { id: 9, name: "Tomato Uttapa", rate: "60", image: "tomatouttapa.jpg" },
+        {
+          id: 10,
+          name: "Sabudana Wada",
+          rate: "40",
+          image: "sabudanawada.jpg",
+        },
+        {
+          id: 11,
+          name: "Sabudana Khichadi",
+          rate: "40",
+          image: "sabudanakhichadi.jpg",
+        },
+        { id: 12, name: "Veg Sandwich", rate: "30", image: "sandwich.jpg" },
+      ];
+      var ele_container_items = document.getElementById("container-items");
+      var columnNames = ["id", "name", "rate", "image"];
+      var html= "";
+      for(var i=0;i<items.length;i++)
+      {
+            html+=` 
+            <div class="a-menu" id="item${i+1}">
+        <img src="./images/${items[i].image}" />
+        <div id="name-menu">${items[i].name}</div>
+        <div id="rate-menu">Rs. ${items[i].rate}/-</div>
+      </div>`;            
+        }
+        ele_container_items.innerHTML=html;
+      
+    </script>
+  </body>
+</html>

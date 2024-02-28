@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Players</title>
+  <style>
+    * {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif Rounded;
+    padding: 0px;
+    margin: 0px;
+    font-size: 30px;
+  }
+    body {
+      padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  #container
+  {
+    width:500px;
+    margin: 20px auto;
+    font-size: 25px;
+    padding: 10px;
+    color:black;
+  }
+  .players
+  {
+    background-color: brown;
+    color: chartreuse;
+    margin-bottom: 10px;
+    padding-left: 10px;
+
+  }
+  
+  </style>
+</head>
+<body>
+      <div id="container" ></div> 
+  <script >
+var players=["Rohit Sharma", "Shubman Gill", "Prithvi Shaw", "Mayank Agarwal", "Abhimanyu Easwaran", "Priyank Panchal",
+"Cheteshwar Pujara", "Virat Kohli", "Ajinkya Rahane", "Hanuma Vihari", "KL Rahul",
+"Washington Sundar", "Hardik Pandya", "Ravindra Jadeja"];
+var index=0;
+showPlayers();
+function showPlayers() {
+// ????
+var html = "";
+        for (let i = 0; i < players.length; i++) {
+    //       html += `
+    //     <div class="players" id="player${i}">${players[i]} </div>
+    // `;
+    html+=`<div class="players" >${players[i]}</div>`;
+        }
+ document.getElementById("container").innerHTML=html;
+}
+</script>
+</body>
+</html>

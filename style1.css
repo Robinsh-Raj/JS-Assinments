@@ -1,0 +1,42 @@
+* {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    line-height: 1.4;
+    font-size: 30px;
+  }
+  
+  table,
+  td {
+    margin: 50px auto;
+  }
+  td {
+    width: 100px;
+    text-align: center;
+    background-color: burlywood;
+    color: black;
+    padding: 10px;
+  }
+  h1 {
+    text-align: center;
+    color: cornflowerblue;
+  }
+  button {
+    font-size: 20px;
+  }
+  .like {
+    background-color: green;
+    border: none;
+    padding: 5px;
+  }
+  .dislike {
+    background-color: red;
+    border: none;
+    padding: 5px;
+  }
+  

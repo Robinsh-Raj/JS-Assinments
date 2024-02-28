@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            width: 20%;
+            border: 2px solid black;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            background-color: orange;
+            text-align: center;
+        }
+        button
+        {
+            margin: 5px;
+            padding: 10px;
+            text-align: center;
+            background-color: blueviolet;
+        }
+        #num1, #num2, #result
+        {
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            margin: 10px;
+        }
+        #error
+        {
+            color: red;
+            font-size: small;
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="error">Enter the number first</div>
+        <div class="container2">
+        <input  type="text" name="num" id="num1" placeholder="Enter first number">
+        <input  type="text" id="num2" placeholder="Enter second number">
+        <input
+        type="text"
+        id="result"
+        readonly
+        placeholder="U will get result"
+      />
+
+    </div>
+    
+        <button id="1" onclick="add(this.id)">+</button>
+        <button id="2" onclick="add(this.id)">-</button>
+        <button id="3" onclick="add(this.id)">*</button>
+        <button id="4" onclick="add(this.id)">/</button>
+        <button id="clr" onclick="clr()">C</button>
+    </div>
+     <script>
+        var c;
+        function add(id)
+        {
+            var a = document.getElementById("num1").value;
+                var b = document.getElementById("num2").value;
+                
+                
+            if(id==1)
+            {
+                c = Number(a)+Number(b);
+            }
+            else if(id==2)
+            {
+                c = Number(a)-Number(b);
+            }
+            else if(id==3)
+            {
+                c = Number(a)*Number(b); 
+            }
+            else 
+            {
+                c = Number(a)/Number(b);
+            }
+            document.getElementById("result").value=c;
+            if(b=="" || a=="")
+            {
+                    document.getElementById("error").style.display="block";
+                    clr();
+                
+            }
+            else
+            {
+                document.getElementById("result").value=c;
+            }
+        }
+       function clr()
+        {
+            document.getElementById("num1").value="";
+            document.getElementById("num2").value="";
+            document.getElementById("result").value="";
+        }
+     </script>
+</body>
+</html>

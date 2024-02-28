@@ -1,0 +1,65 @@
+<!--  save this file as index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ass12</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 16px;
+      }
+      #container {
+        background-color: blue;
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      #container-text {
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      input[type="text"] {
+        margin: 10px auto;
+        font-size: 30px;
+        width: 80%;
+        text-align: center;
+      }
+      .distance
+      {
+        font-size: 30px;
+        text-align: center;
+        color: blue;
+
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <input type="text" id="ip" onkeyup="display()" placeholder="Enter distance in km" />
+    </div>
+    <div id="container-text">
+      <div id="m" class="distance"></div>
+      <div id="ft" class="distance"></div>
+      <div id="inches" class="distance"></div>
+    </div>
+
+    <script>
+      function display()
+      {
+        document.getElementById("m").innerHTML="In meter---> "+document.getElementById("ip").value*1000;
+        document.getElementById("ft").innerHTML="In feets---> "+document.getElementById("ip").value*1000*3.28084;
+        document.getElementById("inches").innerHTML="In inches---> "+document.getElementById("ip").value*1000*39.3701;
+      }
+    </script>
+  </body>
+</html>

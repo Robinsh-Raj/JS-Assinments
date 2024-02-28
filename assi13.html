@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ass13</title>
+    <style>
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 16px;
+      }
+      #container {
+        background-color:  darkgoldenrod;;
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        text-align: center;
+      }
+      #container-factors {
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      input[type="text"] {
+        margin: 10px auto;
+        font-size: 30px;
+        width: 80%;
+        text-align: center;
+      }
+      #counter
+      {
+        color:white
+      }
+     span
+     {
+       background-color: darkgoldenrod;
+       color: white;
+       padding: 10px;
+       margin: 10px;
+     }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="counter"></div>
+      <input type="text" id="ip" placeholder="Enter a number" onkeyup="act()" />
+    </div>
+    <div id="container-factors">
+    </div>
+    <script>
+        var num, factors;
+      var ele_ip = document.getElementById("ip"); 
+      var ele_counter=document.getElementById("counter");
+      var ele_factors=document.getElementById("container-factors");
+      var cnt;
+      function findFactors() {
+        ele_factors.innerHTML="";
+	       cnt=0;
+        for (let i = 1; i <= num; i++){
+
+          if(num%i==0)
+          {
+            ele_factors.innerHTML+="<span>"+i+"</span>"
+            cnt++;
+	          // console.log(i);  
+          }//if
+        }
+        
+       
+      }
+      function act(){
+         num=ele_ip.value;
+         factors=findFactors(num);
+         if(cnt==1){
+          ele_counter.innerHTML=`Only ${cnt} factors`;
+         }
+         else{
+          ele_counter.innerHTML=`Total ${cnt} factors`;
+         }
+         
+        }
+    </script>
+  </body>
+</html>

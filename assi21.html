@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Amul</title>
+    <style>
+      body {
+        font-family: Helvetica, sans-serif;
+        font-size: 20px;
+        text-align: center;
+      }
+      #info {
+        width: 50%;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      img {
+        margin-top: 20px;
+      }
+      #name,
+      #price {
+        font-family: "Calibri", "Trebuchet MS",
+          sans-serif;
+        font-size: 30px;
+        color: crimson;
+        background-color: white;
+        margin: 20px auto;
+        padding: 20px;
+        width: 60%;
+        text-align: center;
+        border-radius: 50%;
+      }
+      #logo {
+        background-image: url("../images/logo.jpg");
+        background-size: contain;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="info">
+        <div id="image"><img src="./images/logo.jpg" alt="" /></div>
+        <div id="name" class="hide">Choco Chips (1 lit)</div>
+        <div id="price" class="hide">Rs. 120/-</div>
+      </div>
+    </div>
+    <script>
+      var data = [
+        {
+          name: "Choco Chips (1 lit)",
+          image: "ChocoChips",
+          price: "Rs. 120/-",
+        },
+        {
+          name: "Chocolate Brownie (1 lit)",
+          image: "ChocolateBrownie",
+          price: "Rs. 150/-",
+        },
+        {
+          name: "King Alphanso (1 lit)",
+          image: "KingAlphanso",
+          price: "Rs. 155/-",
+        },
+        {
+          name: "Moroccan Dry Fruit (1 lit)",
+          image: "MoroccanDryFruit",
+          price: "Rs. 160/-",
+        },
+        {
+          name: "Raj Bhog (1 lit)",
+          image: "Rajbhog",
+          price: "Rs. 110/-",
+        },
+        {
+          name: "Roasted Almonds (1 lit)",
+          image: "RoastedAlmonds",
+          price: "Rs. 160/-",
+        },
+      ];
+      var current = 0;
+      var timeId;
+      timeId = window.setInterval(() => {
+        if (current == data.length) {
+          showLogo();
+          current=0;
+        } else {
+          showProduct();
+          current = (current + 1) % (data.length + 1);
+        }
+      }, 1000);
+
+      function showLogo() {
+        
+         
+            document.querySelector("#image img").src="./images/logo.jpg";
+          
+        }
+      function showProduct() {
+        document.querySelector("#image img").src=`./images/${data[current].image}.jpg`;
+      }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            text-align: center;
+        }
+        .one
+        {
+            background-color: pink;
+            border: 2px solid pink;
+        }
+        .two
+        {
+            
+            background-color: green;
+            border: 2px solid green;
+        }
+        .three
+        {
+            background-color: yellow;
+            border: 2px solid yellow;
+        }
+        .four
+    {
+        background-color: red;
+            border: 2px solid red;
+    }
+    </style>
+</head>
+<body>
+    <button class="one" onclick="changeColors('pink')"> pink </button>
+    <button class="two" onclick="changeColors('green')"> green </button>
+    <button class="three" onclick="changeColors('yellow')"> yellow </button>
+    <button class="four" onclick="changeColors('red')"> red </button>
+    <script>
+        
+        
+        var colors =  ["pink","green","yellow","red"];
+        
+        // window.setInterval()
+        function changeColors(color){
+            // i= Math.floor(Math.random()*colors.length);
+            document.body.style.backgroundColor = color;
+            // console.log(color);
+            
+        }
+        // },2000);
+
+    </script>
+</body>
+</html>

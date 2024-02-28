@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Like/Dislike</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <table id="table-subjects"></table>
+    </div>
+    <script>
+      var subjects = [
+        { name: "Javascript", likes: 0, dislikes: 0 },
+        { name: "Python", likes: 0, dislikes: 0 },
+        { name: "Java", likes: 0, dislikes: 0 },
+        { name: "React", likes: 0, dislikes: 0 },
+      ];
+      var ele_table = document.getElementById("table-subjects");
+      var columnNames = ["name", "likes", "dislikes"];
+      showTable();
+
+      function showTable() {
+        var html = "";
+        for (var i = 0; i < subjects.length; i++) {
+          html += "<tr>";
+          for (var j = 0; j < columnNames.length; j++) {
+            html += "<td>" + subjects[i][columnNames[j]] + "</td>";
+          } //inner for
+          html += `<td > <button class='like' id='${subjects[i].name}' > Like </button> </td>`;
+          html += `<td> <button class='dislike'  id='${subjects[i].name}'> Dislike </button> </td>`;
+          html += "</tr>";
+        } //outer for
+        ele_table.innerHTML = html;
+        var ele_likes = document.getElementsByClassName("like");
+        document.querySelectorAll(".like").forEach((e,index) => {
+          e.addEventListener("click", () => {
+            console.log(e);
+                   updateData(index, "likes");
+          });
+        });
+        document.querySelectorAll(".dislike").forEach((e,index) => {
+          e.addEventListener("click", () => {
+            updateData(index, "dislikes");
+          });
+        });
+      }
+      function updateData(index, action) {
+        if(action=="likes"){
+          subjects[index].likes++;
+        }
+        else{
+          subjects[index].dislikes++;
+        }
+       showTable();
+      }
+
+    </script>
+  </body>
+</html>

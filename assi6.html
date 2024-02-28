@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container
+        {
+            width: 50%;
+            border: 2px solid black;
+            height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: aqua;
+        }
+        h1
+        {
+            text-align: center;
+        }
+        .btn_fmly
+        {
+            display: flex;
+            margin: 40px auto;
+            justify-content: space-between;
+            width: 70%;
+        }
+            
+        button:hover
+        {
+            background-color: aquamarine;
+            
+        }
+        button
+        {
+            padding: 15px;
+            font-size: 20px;
+            margin: 20px;
+            background-color: blue;
+        }
+        #count
+        {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1 id="count"></h1>
+        <p class="btn_fmly">
+            <button id="1" onclick="start(this.id)">-5</button>
+            <button id="2" onclick="start(this.id)">-1</button>
+            <button id="3" onclick="start(this.id)">+1</button>
+            <button id="4" onclick="start(this.id)">+5</button>
+        </p>
+    </div>
+    <script>
+        var i=0;
+        function start(id){
+            
+            if(id==1)
+            {
+                i+=-5;
+                document.getElementById("count").innerHTML=i;
+                
+            }
+            if(id==2)
+            {
+                i+=-1;
+                document.getElementById("count").innerHTML=i;
+            }
+            if(id==3)
+            {
+                i+=1;
+                document.getElementById("count").innerHTML=i;
+            }
+            if(id==4)
+            {
+                i+=5;
+                document.getElementById("count").innerHTML=i;
+            }
+        }
+
+    </script>
+</body>
+</html>

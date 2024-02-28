@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup Form</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+    <form id="signup" class="form">
+    <h1>Sign Up</h1>
+    <div class="form-field">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username"
+        autocomplete="off" /><small></small>
+    </div>
+    <div class="form-field">
+    <label for="Email">Email:</label>
+    <input type="text" name="email" id="email"autocomplete="off" /><small></small>
+    </div>
+    <div class="form-field">
+        <label for="password">Password:</label>
+        <input
+        type="password"
+        name="password"
+        id="password"
+        autocomplete="off"/><small></small>
+    </div>
+    <div class="form-field">
+        <label for="username">Confirm Password:</label>
+        <input
+        type="password"
+        name="confirm-password"
+        id="confirm-password"
+        autocomplete="off"/><small></small>
+    </div>
+    <div class="form-field">
+        <input type="submit" value="Sign Up" id="submit" />
+    </div>
+    </form>
+        <h3 id="success" class="hide">You have been registered successfully!</h3>
+    </div>
+<script src="main.js" type="module"></script>
+</body>
+</html>

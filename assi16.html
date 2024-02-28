@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ass1</title>
+    <style>
+      body {
+        background-color: royalblue;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-items: flex-start;
+      }
+      #container {
+        font-size: x-large;
+        color: white;
+        text-align: center;
+      }
+      #radiobtns {
+        margin: 50px auto;
+      }
+      img {
+        display: block;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="selecttype">
+        <select
+          name="category"
+          id="category"
+          onchange="changePhotos(this.value)"
+        >
+          <option value="b">Birds</option>
+          <option value="p">Pets</option>
+          <option value="w">Wild Animals</option>
+        </select>
+      </div>
+      <img src="./images/b1.jpeg" alt="" id="0" />
+      <img src="./images/b2.jpeg" alt="" id="1" />
+      <img src="./images/b3.jpeg" alt="" id="2" />
+    </div>
+    <script>
+      var ele_category = document.getElementById("category");
+      var ele_imgs = document.querySelectorAll("img");
+      function changePhotos(value){
+        for(var i=0; i<ele_imgs.length; i++){
+          ele_imgs[i].src="./images/"+value+(i+1)+".jpeg";
+        }
+        // ele_category.innerHTML=ele_imgs;
+      }
+    </script>
+  </body>
+</html>

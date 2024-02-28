@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px auto;
+      background-color: darkorange;
+      width:80%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+    }
+    .output {
+  font-weight:bold;
+}
+#payment {
+  text-decoration:underline;
+}
+#graph {
+  border:solid black 1px;
+}
+th, td {
+  vertical-align: top;
+  padding: 10px 2px;
+  /* border: 2px dotted red; */
+}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <table>
+      <tr><th colspan="2">Enter Loan Data:</th>
+        
+      <tr><td>Amount of the loan:</td>
+      <td><input id="amount" onchange="calculate();"></td>
+      </tr>
+      <tr><td>Annual interest (%):</td>
+        <td><input id="apr" onchange="calculate();"></td></tr>
+      <tr><td>Repayment period (years):</td>
+        <td><input id="years" onchange="calculate();"></td>
+      <tr>
+      <tr>
+        <td colspan="2" style="text-align: center;"><button onclick="calculate();">Calculate</button></td></tr>
+      <tr><td>Monthly payment:</td>
+        <td>Rs. <span class="output" id="payment"></span></td></tr>
+      <tr><td>Total payment:</td>
+        <td>Rs. <span class="output" id="total"></span></td></tr>
+      <tr><td>Total interest:</td>
+        <td>Rs. <span class="output" id="totalinterest"></span></td></tr>
+      </table>
+  </div>
+  <script>
+    function calculate() {
+  //Look up the input and output elements in the document
+  var amount = document.getElementById("amount");
+  var apr = document.getElementById("apr");
+  var years = document.getElementById("years");
+  var zipcode = document.getElementById("zipcode");
+  var payment = document.getElementById("payment");
+  var total = document.getElementById("total");
+  var totalinterest = document.getElementById("totalinterest");
+  
+// Get the user's input from the input elements.
+// Convert interest from a percentage to a decimal, and convert from
+// an annual rate to a monthly rate. Convert payment period in years
+// to the number of monthly payments.
+var principal = parseFloat(amount.value);
+var interest = parseFloat(apr.value) / 100 / 12;
+var payments = parseFloat(years.value) * 12;
+  
+// compute the monthly payment figure
+var x = Math.pow(1 + interest, payments); //Math.pow computes powers
+var monthly = (principal*x*interest)/(x-1);
+
+// If the result is a finite number, the user's input was good and
+// we have meaningful results to display
+if (isFinite(monthly)){
+  // Fill in the output fields, rounding to 2 decimal places
+  payment.innerHTML = monthly.toFixed(2);
+  total.innerHTML = (monthly * payments).toFixed(2);
+  totalinterest.innerHTML = ((monthly*payments)-principal).toFixed(2); 
+ }
+ else {
+ // Result was Not-a-Number or infinite, which means the input was
+ // incomplete or invalid. Clear any previously displayed output.
+ payment.innerHTML = ""; // Erase the content of these elements
+ total.innerHTML = ""
+ totalinterest.innerHTML = "";
+ }
+}
+  </script>
+</body>
+</html>
